@@ -36,9 +36,27 @@ with open("budget_data.csv", 'r') as csvfile:
 
     average_change = total_change/total_months
 
+    print()
+    print("Financial Analysis")
+    print("----------------------------")
+    print("Total Months: " + str(total_months))
+    print("Total Revenue: " + "$" + str(total_profits_losses))
+    print("Average Change: " + "$" + str(average_change))
+    print("Greatest Increase in Profits:" + greatest_increase_date + " ($" + str(greatest_increase) + ")")
+    print("Greatest Decrease in Profits:" + greatest_decrease_date + " ($" + str(greatest_decrease) + ")")
 
-    print(total_months)
-    print(total_profits_losses)
-    print(average_change)
-    print(greatest_increase_date, greatest_increase)
-    print(greatest_decrease_date, greatest_decrease)
+    with open("output_file.txt" , "w") as text_file:
+    	text_file.write("Financial Analysis")
+    	text_file.write("\n")
+    	text_file.write("----------------------------")
+    	text_file.write("\n")
+    	text_file.write("Total Months: " + str(total_months))
+    	text_file.write("\n")
+    	text_file.write("Total Revenue: " + "$" + str(total_profits_losses))
+    	text_file.write("\n")
+    	text_file.write("Average Change: " + "$" + str(average_change))
+    	text_file.write("\n")
+    	text_file.write("Greatest Increase in Profits: " + greatest_increase_date + " ($" + str(greatest_increase) + ")")
+    	text_file.write("\n")
+    	text_file.write("Greatest Decrease in Profits: " + greatest_decrease_date + " ($" + str(greatest_decrease) + ")")
+
