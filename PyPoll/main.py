@@ -10,6 +10,7 @@ with open("election_data.csv", 'r') as csvfile:
 
     total_votes = 0
     list_of_candidates = []
+    x = []
     percent_won = {}
     winner = ''
     most_voted = 0
@@ -38,27 +39,31 @@ with open("election_data.csv", 'r') as csvfile:
     		most_voted = number_of_votes
     		winner = candidate
     	
+    	x.append(candidate + ": " + "{0:.3f}".format(vote_percentage) + "%" + " " "(" + str(number_of_votes) + ")")
     	print(candidate + ": " + "{0:.3f}".format(vote_percentage) + "%" + " " "(" + str(number_of_votes) + ")")
    
     print("---------------------------")
     print("Winner: " + winner)
     print("---------------------------")
 
-    with open("output_file.txt" , "w") as text_file:
-    	text_file.write("Election Results")
-    	text_file.write("\n")
-    	text_file.write("---------------------------")
-    	text_file.write("\n")
-    	text_file.write("Total Votes " + str(total_votes))
-    	text_file.write("\n")
-    	text_file.write("---------------------------")
-    	text_file.write("\n")
-    	text_file.write(candidate + ": " + "{0:.3f}".format(vote_percentage) + "%" + " " "(" + str(number_of_votes) + ")")
-    	text_file.write("\n")
-    	text_file.write("---------------------------")
-    	text_file.write("\n")
-    	text_file.write("Winner: " + winner)
-    	text_file.write("\n")
-    	text_file.write("---------------------------")
+with open("output_file.txt" , "w") as text_file:
+   text_file.write("Election Results")
+   text_file.write("\n")
+   text_file.write("---------------------------")
+   text_file.write("\n")
+   text_file.write("Total Votes " + str(total_votes))
+   text_file.write("\n")
+   text_file.write("---------------------------")
+   for xx in x:
+   	print()
+   	text_file.write("\n")
+   	text_file.write(xx)
+
+   text_file.write("\n")
+   text_file.write("---------------------------")
+   text_file.write("\n")
+   text_file.write("Winner: " + winner)
+   text_file.write("\n")
+   text_file.write("---------------------------")
     
 
